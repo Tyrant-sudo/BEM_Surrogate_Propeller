@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Xdmf xmlns:xi="http://www.w3.org/2001/XInclude" Version="3.0">
+	<Domain>
+		<Grid Name="particles" GridType="Uniform">
+				<Time Value="426" />
+				<Geometry Type="XYZ">
+					<DataItem DataType="Float" Dimensions="111744 3" Format="HDF" Precision="8">rotorhover_MidHigh_MaxFM_pfield.426.h5:X</DataItem>
+				</Geometry>
+				<Topology Dimensions="111744" Type="Polyvertex"/>
+				<Attribute Center="Node" Name="Gamma" Type="Vector">
+					<DataItem DataType="Float" Dimensions="111744 3" Format="HDF" Precision="8">rotorhover_MidHigh_MaxFM_pfield.426.h5:Gamma</DataItem>
+				</Attribute>
+				<Attribute Center="Node" Name="sigma" Type="Scalar">
+					<DataItem DataType="Float" Dimensions="111744" Format="HDF" Precision="8">rotorhover_MidHigh_MaxFM_pfield.426.h5:sigma</DataItem>
+				</Attribute>
+				<Attribute Center="Node" Name="circulation" Type="Scalar">
+					<DataItem DataType="Float" Dimensions="111744" Format="HDF" Precision="8">rotorhover_MidHigh_MaxFM_pfield.426.h5:circulation</DataItem>
+				</Attribute>
+				<Attribute Center="Node" Name="vol" Type="Scalar">
+					<DataItem DataType="Float" Dimensions="111744" Format="HDF" Precision="8">rotorhover_MidHigh_MaxFM_pfield.426.h5:vol</DataItem>
+				</Attribute>
+				<Attribute Center="Node" Name="static" Type="Scalar">
+					<DataItem DataType="Int" Dimensions="111744" Format="HDF" Precision="8">rotorhover_MidHigh_MaxFM_pfield.426.h5:static</DataItem>
+				</Attribute>
+				<Attribute Center="Node" Name="i" Type="Scalar">
+					<DataItem DataType="Int" Dimensions="111744" Format="HDF" Precision="4">rotorhover_MidHigh_MaxFM_pfield.426.h5:i</DataItem>
+				</Attribute>
+		</Grid>
+	</Domain>
+</Xdmf>

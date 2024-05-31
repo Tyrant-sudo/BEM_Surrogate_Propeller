@@ -1,0 +1,4 @@
+&casename
+globalFolderName='./runcase/'
+caseNameFile='runcase.nam'
+/

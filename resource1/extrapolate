@@ -1,0 +1,56 @@
+import os
+import logging
+import logging.config
+import yaml
+import argparse
+import numpy as np
+
+from extrapolate_program.deal_extrapolate import form_extrapolate
+from extrapolate_program.deal_extrapolate import draw_curve
+
+from extrapolate_program.deal_foil import form_xfoil
+
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description='extrapolate a foil result')
+
+    parser.add_argument('--foil',default='naca0012')
+    parser.add_argument('--Re',default=1e5)
+    parser.add_argument('--base_angle',default='-10,10')
+    # parser.add_argument('--resolution',default=360)
+    parser.add_argument('--save_file',default='example_extrapolate')
+    parser.add_argument('--mach',default=0.1)
+
+    args = parser.parse_args()
+    
+    foil_data = args.foil
+    file_path = args.save_file
+    Re        = args.Re
+    mach      = float(args.mach)
+    
+    angle  = args.base_angle
+    alpla0 = int(angle.split(' ')[0])
+    alpla1 = int(angle.split(' ')[1])
+    alpha  = [alpla0,alpla1,1]
+
+    number_extrapolate = args.save_file
+
+    foil,s = form_xfoil(foil_data,file_path,Re,alpha,mach)
+
+    
+    s = np.array(s)
+    Re    = s[:,0][0]
+    alpha = s[:,1]
+    cl    = s[:,2]
+    cd    = s[:,3]
+    cm    = s[:,4]
+    extrapolate_name = '/extrapolate_Re'+str(Re)+'_'+foil
+    # print(Re,alpha,cl,cd,cm)
+    form_extrapolate(file_path,extrapolate_name,Re,alpha,cl,cd,cm)
+    
+    # draw_curve(file_path,'/NACA_4412.dat')
+
+
+
+
+

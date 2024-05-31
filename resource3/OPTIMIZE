@@ -1,0 +1,95 @@
+import os
+import logging
+import logging.config
+import yaml
+import argparse
+import numpy as np
+import sys
+import time
+import csv
+import matplotlib.pyplot as plt
+from configparser import SafeConfigParser
+from pymoo.algorithms.moo.nsga2 import NSGA2
+from BEMT_program.solver import Solver
+from GA_problem import Optimize_BestEta_ConsPitchCl, Optimize_BestEta_ConsTPitchCrCl
+from pymoo.operators.sampling.rnd import BinaryRandomSampling,FloatRandomSampling
+from GA_problem import constraint
+from drawing_pic import draw_block,draw_process
+from pymoo.optimize import minimize
+
+class HiddenPrints:
+    def __enter__(self):
+        self._original_stdout = sys.stdout
+        sys.stdout = open(os.devnull, 'w')
+ 
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout.close()
+        sys.stdout = self._original_stdout
+
+def get_BEM(r_R,pitch,c_R,s:Solver):
+    
+    BEM_path = s.path
+    v_inf   = s.v_inf
+
+    with HiddenPrints():
+    
+        s = Solver(BEM_path,r1=r_R,p1=pitch,c1=c_R)
+        df, sections = s.run_sweep('v_inf', 1, v_inf, v_inf)
+        base_eta     = df['eta'][0]
+        base_T       = df["T"][0]
+    
+    return base_eta,base_T
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description='extrapolate a foil result')
+    
+    # parser.add_argument('--foil',default='BEMT_program/airfoil')
+    parser.add_argument('--BEM_file',default='example_OPTIMIZE/prop.ini')
+    parser.add_argument('--restrict',default='example_OPTIMIZE/restrict1.ini')
+    parser.add_argument('--save_file',default='example_OPTIMIZE/process')
+    parser.add_argument('--get_stl',default=False)
+    parser.add_argument('--pic',default='example_OPTIMIZE/OPTIMIZE_fig')
+    args = parser.parse_args()
+    
+    # foil_path = args.foil
+    geom_path = args.BEM_file
+    save_path = args.save_file
+    pic_path  = args.pic
+    res_path  = args.restrict
+
+    s = Solver(geom_path)
+    num_sec = len(s.rotor.sections)
+
+    r = constraint(res_path)
+    r.get_len(num_sec)
+
+    problem = Optimize_BestEta_ConsPitchCl(s,r,save_path)
+    problem.get_rotor()
+    problem.get_base()
+
+    algorithm = NSGA2(pop_size=int(r.pop_size),
+                  sampling=FloatRandomSampling(),
+                #   crossover=TwoPointCrossover(),
+                #   mutation=BitflipMutation(),
+                  eliminate_duplicates=True)
+
+    res = minimize(problem,
+                algorithm,
+                ('n_gen', int(r.total)),
+                seed=int(r.seed),
+                #    save_history = True,
+                #    verbose=True)
+    )
+    
+    x = np.load(r.result_path + 'x.npy')
+    problem.draw_result(r.result_path + 'x.npy',pic_path)
+    
+    
+
+
+
+
+
+
+    
+

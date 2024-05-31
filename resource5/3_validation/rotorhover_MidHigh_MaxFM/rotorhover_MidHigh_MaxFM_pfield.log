@@ -1,0 +1,104 @@
+-------------------------------------------------------------------------
+
+	SOLVER SETTINGS
+		  maxparticles----> 290881
+		   formulation----> formulation_rVPM
+		       viscous----> (Symbol("*userfunction"), "FLOWVPM.Inviscid{Float64}(0.0)")
+		        kernel----> gaussianerf
+		            UJ----> UJ_fmm
+		          Uinf----> (Symbol("*userfunction"), "#147")
+		           SFS----> SFS_none
+		   integration----> rungekutta3
+		    transposed----> true
+		    relaxation----> pedrizzetti
+		           fmm----> FLOWVPM.FMM(4, 50, 0.4, 0.5)
+
+	SIMULATION SETTINGS
+		dt:			0.00015432098765432098
+		Runtime function:	Yes
+		Static particles:	Yes
+		nsteps_save:		1
+
+-------------------------------------------------------------------------
+*************************************************************************
+START rotorhover_MidHigh_MaxFM/rotorhover_MidHigh_MaxFM_pfield
+	2024-03-11T15:56:19.542
+*************************************************************************
+	Time step 0 out of 720	Particles: 0
+	Time step 10 out of 720	Particles: 2206
+	Time step 20 out of 720	Particles: 4472
+	Time step 30 out of 720	Particles: 6770
+	Time step 40 out of 720	Particles: 9192
+	Time step 50 out of 720	Particles: 11542
+	Time step 60 out of 720	Particles: 13766
+	Time step 70 out of 720	Particles: 16134
+	Time step 80 out of 720	Particles: 18620
+	Time step 90 out of 720	Particles: 21050
+	Time step 100 out of 720	Particles: 23350
+	Time step 110 out of 720	Particles: 25748
+	Time step 120 out of 720	Particles: 28206
+	Time step 130 out of 720	Particles: 30630
+	Time step 140 out of 720	Particles: 33062
+	Time step 150 out of 720	Particles: 35526
+	Time step 160 out of 720	Particles: 37984
+	Time step 170 out of 720	Particles: 40360
+	Time step 180 out of 720	Particles: 42782
+	Time step 190 out of 720	Particles: 45228
+	Time step 200 out of 720	Particles: 47666
+	Time step 210 out of 720	Particles: 50052
+	Time step 220 out of 720	Particles: 52662
+	Time step 230 out of 720	Particles: 55582
+	Time step 240 out of 720	Particles: 58532
+	Time step 250 out of 720	Particles: 61408
+	Time step 260 out of 720	Particles: 64338
+	Time step 270 out of 720	Particles: 67250
+	Time step 280 out of 720	Particles: 70154
+	Time step 290 out of 720	Particles: 73130
+	Time step 300 out of 720	Particles: 76022
+	Time step 310 out of 720	Particles: 78912
+	Time step 320 out of 720	Particles: 81772
+	Time step 330 out of 720	Particles: 84626
+	Time step 340 out of 720	Particles: 87464
+	Time step 350 out of 720	Particles: 90334
+	Time step 360 out of 720	Particles: 93014
+	Time step 370 out of 720	Particles: 95854
+	Time step 380 out of 720	Particles: 98702
+	Time step 390 out of 720	Particles: 101490
+	Time step 400 out of 720	Particles: 104296
+	Time step 410 out of 720	Particles: 107034
+	Time step 420 out of 720	Particles: 109818
+	Time step 430 out of 720	Particles: 112594
+	Time step 440 out of 720	Particles: 115282
+	Time step 450 out of 720	Particles: 117976
+	Time step 460 out of 720	Particles: 120712
+	Time step 470 out of 720	Particles: 123456
+	Time step 480 out of 720	Particles: 126248
+	Time step 490 out of 720	Particles: 129006
+	Time step 500 out of 720	Particles: 131652
+	Time step 510 out of 720	Particles: 134390
+	Time step 520 out of 720	Particles: 137162
+	Time step 530 out of 720	Particles: 139950
+	Time step 540 out of 720	Particles: 142760
+	Time step 550 out of 720	Particles: 145522
+	Time step 560 out of 720	Particles: 148396
+	Time step 570 out of 720	Particles: 151236
+	Time step 580 out of 720	Particles: 154044
+	Time step 590 out of 720	Particles: 156842
+	Time step 600 out of 720	Particles: 159738
+	Time step 610 out of 720	Particles: 162596
+	Time step 620 out of 720	Particles: 165454
+	Time step 630 out of 720	Particles: 168356
+	Time step 640 out of 720	Particles: 171158
+	Time step 650 out of 720	Particles: 174028
+	Time step 660 out of 720	Particles: 176796
+	Time step 670 out of 720	Particles: 179674
+	Time step 680 out of 720	Particles: 182534
+	Time step 690 out of 720	Particles: 185360
+	Time step 700 out of 720	Particles: 188158
+	Time step 710 out of 720	Particles: 190944
+	Time step 720 out of 720	Particles: 193812
+*************************************************************************
+END rotorhover_MidHigh_MaxFM/rotorhover_MidHigh_MaxFM_pfield
+	2024-03-11T18:45:57.814
+*************************************************************************
+ELAPSED TIME: 2 hours 49 minutes 38 seconds

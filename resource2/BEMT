@@ -1,0 +1,99 @@
+import os
+import logging
+import logging.config
+import yaml
+import argparse
+import numpy as np
+import sys
+import time
+import csv
+import matplotlib.pyplot as plt
+
+from BEMT_program.solver import Solver
+
+
+class HiddenPrints:
+    def __enter__(self):
+        self._original_stdout = sys.stdout
+        sys.stdout = open(os.devnull, 'w')
+ 
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout.close()
+        sys.stdout = self._original_stdout
+
+
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description='extrapolate a foil result')
+    
+    # parser.add_argument('--foil',default='BEMT_program/airfoil')
+    parser.add_argument('--para_file',default='example_BEMT/prop.ini')
+    parser.add_argument('--V',default=None)
+    parser.add_argument('--rpm',default=None)
+    parser.add_argument('--save_file',default='example_BEMT/result')
+    parser.add_argument('--draw_pic',default=True)
+
+    args = parser.parse_args()
+    
+    # foil_path = args.foil
+    geom_path = args.para_file
+    save_path = args.save_file
+
+    if args.draw_pic:
+        print('Drawing picture ...')
+    else:
+        print('Saving result ...')
+
+    if args.V:
+        temp  = args.V
+        num   = int(temp.split(' ')[0])
+        start = float(temp.split(' ')[1])
+        end   = float(temp.split(' ')[2])
+        mode  = 'v_inf'
+
+    if args.rpm:
+        temp  = args.rpm
+        num   = int(temp.split(' ')[0])
+        start = float(temp.split(' ')[1])
+        end   = float(temp.split(' ')[2])
+        mode  = 'rpm'
+    if args.V and args.rpm:
+        print('too mush args!!!!')
+
+    s = Solver(geom_path)
+    
+    with HiddenPrints():
+
+
+        df,sections = s.run_sweep(mode,num,start,end)
+
+        timestr     = time.strftime("%Y%m%d-%H%M%S")
+        save_file   = save_path + '/' + timestr + '.csv'
+        with open(save_file,'w') as f:
+            writer = csv.writer(f)
+            J  = np.linspace(start,end,num).tolist()            
+            first  = tuple([mode] + J)
+            writer.writerow(first)
+            
+            CP = df['CP'].tolist()
+            second = tuple(['CP']+CP)
+            writer.writerow(second)
+
+            CT  = df['CT'].tolist()
+            third  = tuple(['CT']+CT)
+            writer.writerow(third)
+
+            eta  = df['eta'].tolist()
+            forth  = tuple(['eta']+eta)
+            writer.writerow(forth)
+
+    if args.draw_pic:
+
+        ax = df.plot(x='J',y='eta')
+        plt.ylabel('$\eta$')
+        ax2 = ax.twinx()
+        plt.ylabel('$C_P, C_T$')
+        df.plot(x='J', y='CP', style='C1-',ax=ax2, legend=None) 
+        df.plot(x='J', y='CT', style='C2-',ax=ax2, legend=None) 
+        plt.legend(('BEMT, $C_P$','BEMT, $C_T$'),loc='center right')
+        plt.show()

@@ -1,0 +1,60 @@
+&EnvironmentIn
+
+  nbContainer=1
+  ASCIIOutputFlag=.true.
+  audioFlag=.false.
+
+  OASPLdBFlag = .true.
+  OASPLdBAFlag = .true.
+  spectrumFlag = .true.
+  SPLdBFlag = .true.
+  SPLdBAFlag = .true.
+  acousticPressureFlag=.true.
+  pressureGradient1AFlag = .false.
+
+  debugLevel = 0
+
+  thicknessNoiseFlag=.true.
+  loadingNoiseFlag=.true.
+  totalNoiseFlag=.true.
+
+/
+&EnvironmentConstants
+  rho   = 1.071778
+  c     = 342.35
+/
+ &ObserverIn
+   nbBase = 0
+   nt   = 2160
+   fileName = "observergrid.xyz"
+   tMin = 0.0
+   tMax = 0.2
+       highPassFrequency = 0.0
+   octaveFlag = .true.
+   octaveNumber = 3
+   octaveApproxFlag = .false.
+
+ /
+&ContainerIn
+  dTau        = 9.25925925925926e-5
+  nbBase      = 0
+  nbContainer = 4
+/
+&ContainerIn
+  patchGeometryFile="rotorhover_MidHigh_MaxFM_Rotor_Blade1_loft.wop"
+  nbBase=0
+/
+&ContainerIn
+  patchGeometryFile="rotorhover_MidHigh_MaxFM_Rotor_Blade2_loft.wop"
+  nbBase=0
+/
+&ContainerIn
+  patchGeometryFile="rotorhover_MidHigh_MaxFM_Sys1_Rotor1_Blade1_compact.wop"
+  patchLoadingFile="rotorhover_MidHigh_MaxFM_Sys1_Rotor1_Blade1_loading_periodic.wop"
+  nbBase=0
+/
+&ContainerIn
+  patchGeometryFile="rotorhover_MidHigh_MaxFM_Sys1_Rotor1_Blade2_compact.wop"
+  patchLoadingFile="rotorhover_MidHigh_MaxFM_Sys1_Rotor1_Blade2_loading_periodic.wop"
+  nbBase=0
+/
