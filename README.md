@@ -59,11 +59,11 @@ Glauert, H., “Airplane propellers,” Aerodynamic theory, Springer, 1935, pp. 
 考虑牛顿第二定律：
 
 
-$$\begin{equation} T = \dot{m_{air}}(u'_x - V_x ) =  \rho u_x S ( u'_x - V_x)   \end{equation}  $$
+$$\begin{equation} T = \dot{m_{air}}(u'_x - V_x ) =  \rho u_x S ( u'_x - V_x)   \end{equation}$$
 
 忽略体力，考虑质量通量在面上的积分
 
-$$\begin{equation}T - X_p + \rho (S_0 - S' ) = \int 2 \pi \rho u_x (u'_x -V_x)r dr  \end{equation} $$
+$$\begin{equation}T - X_p + \rho (S_0 - S' ) = \int 2 \pi \rho u_x (u'_x -V_x)r dr  \end{equation}$$
 
 r代表径向距离，$p_0 (S_0 - S') $是作用流管两端压力， $X_p$是侧向压力。两项抵消，有
 
@@ -79,7 +79,7 @@ $$\begin{equation} P = \frac{1}{2} \dot{m_{air} }  (u'_x -V^2_x) = \frac{1}{2} \
 
 单位时刻做的有用功即4功率
 
-$$\begin{equation}  \dot{W_T} = T u_x \end{equation} $$
+$$\begin{equation}  \dot{W_T} = T u_x \end{equation}$$
 
 假设转子面轴向速度为远场上游与尾流速度平均
 
@@ -91,7 +91,7 @@ $$\begin{equation} u_x = V_x (1 + a_x) \end{equation}$$
 
 由上述两式，有转化
 
-$$\begin{equation}  dT = 4 \pi \rho u_x (u_x - V_x) r dr\end{equation} $$
+$$\begin{equation}  dT = 4 \pi \rho u_x (u_x - V_x) r dr\end{equation}$$
 或
 
 $$\begin{equation}  dT = 4 \pi \rho V^2_x (1 +a_x) a_x r dr \end{equation}$$
@@ -109,21 +109,21 @@ $$\begin{equation} \eta_1 = \frac{V_x T}{P} = \frac{V_x}{u_x}\end{equation}$$
 #### 2.1.2.2 转向动量理论
 
 - 考虑螺旋桨滑流旋转损失（之前忽略）。由于桨叶与空气分子相互作用，增加了转向动量。
-- 点质量假设，有角动量 $L = u_\theta m r^2$ 也可以写为 $ L = \omega_\theta m r^2 $
+- 点质量假设，有角动量 $L = u_\theta m r^2$ 也可以写为 $L = \omega_\theta m r^2$
 
 由角动量守恒，导出切向诱导速度与最终尾流速度
 
 $$\begin{equation}  u_\theta r^2 = u'_\theta r'^2 \end{equation}$$
 
-$$ \begin{equation} dQ = \dot{m} \omega_\theta r^2 = 2 \pi \rho \omega_\theta u_x r^3 dr = 2 \pi \rho u_\theta u_x r^2 dr\end{equation} $$
+$$\begin{equation} dQ = \dot{m} \omega_\theta r^2 = 2 \pi \rho \omega_\theta u_x r^3 dr = 2 \pi \rho u_\theta u_x r^2 dr\end{equation}$$
 
 而扭矩是由角动量单位时间增长导致的
 
-$$\begin{equation} dQ = \dot{m} u_\theta r^2 = 2 \pi \rho u_x u_\theta r^2 dr\end{equation} $$
+$$\begin{equation} dQ = \dot{m} u_\theta r^2 = 2 \pi \rho u_x u_\theta r^2 dr\end{equation}$$
 
 定义切向诱导系数 $a_\theta = \frac{u_\theta}{2 V_\theta} $, 公式(14)改写为
 
-$$ \begin{equation}dQ = 4 \pi \rho V_x V_\theta (1+a_x) a_\theta r^2 dr \end{equation}$$
+$$\begin{equation}dQ = 4 \pi \rho V_x V_\theta (1+a_x) a_\theta r^2 dr \end{equation}$$
 
 在转子面前后用不可压缩无黏伯努利方程，通过转子平面的压强变化为
 
@@ -137,7 +137,7 @@ $$\begin{equation}dT^* = 2 \pi \delta p dr = 2 \pi \rho (V_\theta -  \frac{1}{2}
 
 $$\begin{equation} T^* = \int 2 \pi \rho (\Omega r - \frac{1}{2} \omega_\theta r )\omega_\theta r^2 dr = \frac{1}{4} 2 \pi \rho(\Omega R - \frac{1}{2} \omega_\theta R )\omega_\theta R^3  \end{equation}$$
 
-$$ \begin{equation}Q = \int 2 \pi \rho \omega_\theta u_x r^3 dr = 2 \pi \rho \omega_\theta u_x r^3 \frac{R^4}{4} = \frac{R^4}{4} 2 \pi \rho u_x u_\theta \end{equation}$$
+$$\begin{equation}Q = \int 2 \pi \rho \omega_\theta u_x r^3 dr = 2 \pi \rho \omega_\theta u_x r^3 \frac{R^4}{4} = \frac{R^4}{4} 2 \pi \rho u_x u_\theta \end{equation}$$
 
 
 代入公式(17)得到
@@ -163,13 +163,13 @@ $$\begin{equation}\eta_2 = \frac{V_\theta - \frac{1}{2}u_\theta}{V_\theta} \end{
 
 每个叶素翼型上的推力扭力表示为
 
-$$\begin{equation}dT = dL \cos \phi - dD \sin \phi\end{equation} $$
+$$\begin{equation}dT = dL \cos \phi - dD \sin \phi\end{equation}$$
 
 $$\begin{equation}dQ = dL \sin \phi + dD \cos \phi\end{equation}$$
 
 升阻力系数表示为
 
-$$\begin{equation}dL = \frac{1}{2} \rho W^2 C_l c dr\end{equation} $$
+$$\begin{equation}dL = \frac{1}{2} \rho W^2 C_l c dr\end{equation}$$
 
 $$\begin{equation}dD = \frac{1}{2} \rho W^2 C_d c dr\end{equation} $$
 
@@ -188,7 +188,7 @@ $$\begin{equation} 2 \pi \rho u_x u_\theta r^2 dr = \frac{1}{2} C_\theta \rho W^
 
 积分有
 
-$$ \begin{equation}4 \pi \rho u_x( u_x - V_x)r = \frac{1}{2}(\cos \phi C_l - \sin \phi C_d)(u^2_x + (V_\theta - \frac{1}{2} u_\theta)^2)BC \end{equation}$$
+$$\begin{equation}4 \pi \rho u_x( u_x - V_x)r = \frac{1}{2}(\cos \phi C_l - \sin \phi C_d)(u^2_x + (V_\theta - \frac{1}{2} u_\theta)^2)BC \end{equation}$$
 
 $$\begin{equation} 2 \pi \rho u_x u_\theta r = \frac{1}{2} (\sin \phi C_l + \cos \phi C_d)(u^2_x + (V_\theta - \frac{1}{2})^2)BC)\end{equation} $$
 定义刚度 $ \sigma = \frac{Bc}{2 \pi r}$，对于整个旋翼 $\sigma_r = \frac{B \int ^ R_0 c(r)dr }{\pi R^2} $ 化简有
@@ -201,9 +201,9 @@ $$\begin{equation}u_\theta = \frac{2 \sigma C_\theta V_\theta}{4 \sin \phi \cos 
 
 $$\begin{equation} u_x = V_x + \frac{\sigma C_x V_\theta}{4 \sin \phi \cos \phi + \sigma C_\theta} \end{equation}  $$
 
-将无量纲数 $a_x 和 a_\theta $ 代入公式(33)(34)
+将无量纲数 $a_x$ 和 $a_\theta$ 代入公式(33)(34)
 
-$$ \begin{equation}a_x = \frac{C_x \sigma}{4 \sin^2 \phi - C_x \sigma} \end{equation} $$
+$$\begin{equation}a_x = \frac{C_x \sigma}{4 \sin^2 \phi - C_x \sigma} \end{equation} $$
 $$ \begin{equation}a_\theta = \frac{C_\theta \sigma}{2 \sin 2 \phi + C_\theta \sigma}\end{equation}   $$
 
 引入入流角$\theta$
